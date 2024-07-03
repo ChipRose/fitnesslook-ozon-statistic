@@ -1,9 +1,10 @@
 import EnhancedTable from "../EnhancedTable/EnhancedTable";
+import { navs } from '../../mocks/mocks';
 
 function App() {
   return (
     <div className="App">
-      <EnhancedTable></EnhancedTable>
+      <EnhancedTable data={navs}></EnhancedTable>
     </div>
   );
 }
