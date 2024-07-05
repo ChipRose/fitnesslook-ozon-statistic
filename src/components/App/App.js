@@ -1,11 +1,12 @@
-import EnhancedTable from "../EnhancedTable/EnhancedTable";
-import { navs } from '../../mocks/mocks';
+import TableSale from "../TableSale/TableSale";
+import { products, getHeaderCells } from '../../mocks/mocks';
+import ThemeHook from "../../hooks/ThemeHook";
 
 function App() {
   return (
-    <div className="App">
-      <EnhancedTable data={navs}></EnhancedTable>
-    </div>
+    <ThemeHook >
+      <TableSale data={products} headerData={getHeaderCells()}  props></TableSale>
+    </ThemeHook>
   );
 }
 

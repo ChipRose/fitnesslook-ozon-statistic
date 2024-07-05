@@ -12,3 +12,12 @@ export const getRandomUniQArray = (min = 0, max, length) => {
   }
   return arr;
 }
+
+const addNull = (num) => {
+  return num.toString().length < 2 ? `0${num}` : num.toString();
+}
+
+export const formatDatesPeriod = (period) => {
+  const [start, end] = period;
+  return `${addNull(start.getDate())}.${addNull(start.getMonth())} - ${addNull(end.getDate())}.${addNull(end.getMonth())}`
+}
