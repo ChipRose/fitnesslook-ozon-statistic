@@ -5,7 +5,7 @@ import ThemeHook from "../../hooks/ThemeHook";
 function App() {
   return (
     <ThemeHook >
-      <TableSale data={products} headerData={getHeaderCells()}  props></TableSale>
+      <TableSale data={products} headerData={getHeaderCells()}></TableSale>
     </ThemeHook>
   );
 }

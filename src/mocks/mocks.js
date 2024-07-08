@@ -42,19 +42,26 @@ const periods = getPeriods({ year: 2024, month: 7, day: 1 });
 
 export const products = [{
   productId: 0,
-  avPos: Array.from(periods, (v, i) => ({ periodId: `period-${i}`, value: getRandomNumber(0, 100) })),
-  imps: Array.from(periods, (v, i) => ({ period: `period-${i}`, value: getRandomNumber(0, 100) })),
-  clicks: Array.from(periods, (v, i) => ({ period: `period-${i}`, value: getRandomNumber(0, 100) })),
-}]
+  metric: {
+      avPos: Array.from(periods, (v, i) => ({ id: `period-${i}`, value: getRandomNumber(0, 100) })),
+    }
+  // imps: Array.from(periods, (v, i) => ({ period: `period-${i}`, value: getRandomNumber(0, 100) })),
+  // clicks: Array.from(periods, (v, i) => ({ period: `period-${i}`, value: getRandomNumber(0, 100) })),
+}
+]
 
 export const getHeaderCells = () => {
   return ([
     {
-      id: 'product',
-      label: ''
+      id: 'productId',
+      dispay: false,
+      label: '',
+      rowSpan:2
     },
     {
-      id: 'characteristic',
+      id: 'metric',
+      dispay: false,
+      nested: true,
       label: ''
     },
     {
@@ -66,10 +73,10 @@ export const getHeaderCells = () => {
       label: 'BEST'
     },
     {
-      id: 'av',
+      id: 'average',
       label: 'AV'
     },
-    ...Array.from([periods[0][0], periods[periods.length - 1][1]], (v, i) => ({
+    ...Array.from([periods[0][0], periods[periods.length - 2][1]], (v, i) => ({
       id: MONTH[v.getMonth()],
       label: MONTH[v.getMonth()]
     })),
@@ -78,7 +85,12 @@ export const getHeaderCells = () => {
       label: formatDatesPeriod(v)
     }))
   ])
+}
 
+export const getNestedValues=({nestedRow, id})=>{
+  return([
+    nestedRow
+  ])
 }
 // export const getNavsHeadCells = (days) => ([
 //   {
